@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Surprise 🎆</title>
+
+<!-- FONT LUCU -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  height:100vh;
+  background:radial-gradient(circle at bottom,#ffe4ee,#ffb3c6);
+  overflow:hidden;
+  font-family:'Fredoka',sans-serif;
+}
+
+/* ================= TEXT ================= */
+.center-text{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  z-index:10;
+  color:#fff;
+  animation:fadeIn 2s ease forwards;
+}
+
+.center-text h1{
+  font-size:34px;
+  margin-bottom:10px;
+  text-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+
+.center-text p{
+  font-size:16px;
+  opacity:.95;
+}
+
+/* ================= FIREWORK ================= */
+.firework{
+  position:absolute;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  animation:explode 1.6s ease-out forwards;
+}
+
+@keyframes explode{
+  from{
+    transform:scale(0);
+    opacity:1;
+  }
+  to{
+    transform:scale(18);
+    opacity:0;
+  }
+}
+
+/* ================= CONFETTI ================= */
+.confetti{
+  position:absolute;
+  font-size:18px;
+  animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+  from{transform:translateY(-20px)}
+  to{transform:translateY(100vh)}
+}
+
+/* ================= BUTTON ================= */
+.btn-replay{
+  margin-top:26px;
+  display:inline-block;
+  padding:14px 36px;
+  background:#ff6f91;
+  color:#fff;
+  border-radius:40px;
+  text-decoration:none;
+  font-size:15px;
+  box-shadow:0 8px 18px rgba(255,111,145,.45);
+  transition:.3s ease;
+}
+
+.btn-replay:hover{
+  background:#ff4d79;
+  transform:translateY(-4px);
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+</style>
+</head>
+
+<body>
+
+<div class="center-text">
+  <h1>🎉 Happy Birthday! 🎉</h1>
+  <p>Semoga hari ini penuh tawa & kebahagiaan 💗</p>
+  <a href="index.html" class="btn-replay">Ulangi Lagi 🎂</a>
+</div>
+
+<script>
+/* ================= FIREWORK LOOP ================= */
+function createFirework(){
+  const fw=document.createElement("div");
+  fw.className="firework";
+  fw.style.left=Math.random()*100+"vw";
+  fw.style.top=Math.random()*60+"vh";
+  fw.style.background=`hsl(${Math.random()*360},80%,70%)`;
+  document.body.appendChild(fw);
+  setTimeout(()=>fw.remove(),1600);
+}
+
+setInterval(createFirework,400);
+
+/* ================= CONFETTI HEART ================= */
+const shapes=["💗","✨","🎉","🌸","💖"];
+
+function createConfetti(){
+  const c=document.createElement("div");
+  c.className="confetti";
+  c.innerText=shapes[Math.floor(Math.random()*shapes.length)];
+  c.style.left=Math.random()*100+"vw";
+  c.style.top="-20px";
+  document.body.appendChild(c);
+  setTimeout(()=>c.remove(),4000);
+}
+
+setInterval(createConfetti,300);
+</script>
+
+</body>
+</html>

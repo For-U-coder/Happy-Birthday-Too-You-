@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday!</title>
+
+<!-- FONT LUCU -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  height:100vh;
+  background:linear-gradient(180deg,#ffd6e8,#fff1f6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Fredoka',sans-serif;
+  overflow:hidden;
+}
+
+/* ================= BACKGROUND DECOR ================= */
+.bg span{
+  position:absolute;
+  font-size:28px;
+  animation:float 6s ease-in-out infinite;
+}
+.bg span:nth-child(1){top:10%;left:15%;animation-delay:0s}
+.bg span:nth-child(2){top:25%;right:20%;animation-delay:1s}
+.bg span:nth-child(3){bottom:20%;left:20%;animation-delay:2s}
+.bg span:nth-child(4){bottom:15%;right:15%;animation-delay:3s}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-18px)}
+}
+
+/* ================= CARD ================= */
+.card{
+  background:#fff;
+  border-radius:28px;
+  padding:28px 32px 34px;
+  text-align:center;
+  box-shadow:0 18px 40px rgba(255,140,170,.35);
+  animation:dropCard 1s ease forwards;
+}
+
+@keyframes dropCard{
+  from{opacity:0;transform:translateY(-40px) scale(.95)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* ================= CAKE ================= */
+.cake{
+  margin:0 auto 18px;
+  width:220px;
+}
+
+/* layers cute */
+.layer{
+  height:28px;
+  border-radius:16px;
+  margin:6px auto;
+}
+.layer.big{
+  width:220px;
+  background:linear-gradient(#ffb3c6,#ff8fab);
+}
+.layer.mid{
+  width:180px;
+  background:linear-gradient(#ffe066,#ffd23f);
+}
+.layer.small{
+  width:140px;
+  background:linear-gradient(#bde0fe,#a2d2ff);
+  position:relative;
+}
+
+/* cream cute */
+.cream{
+  position:absolute;
+  top:-10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:140px;
+  height:34px;
+  background:#fff;
+  border-radius:20px;
+}
+.cream::after{
+  content:'';
+  position:absolute;
+  bottom:-14px;
+  left:0;
+  right:0;
+  height:28px;
+  background:#fff;
+  border-radius:0 0 30px 30px;
+  clip-path: polygon(
+    0% 0%,
+    10% 40%,
+    20% 15%,
+    30% 45%,
+    40% 20%,
+    50% 50%,
+    60% 25%,
+    70% 45%,
+    80% 20%,
+    90% 40%,
+    100% 15%,
+    100% 100%,
+    0% 100%
+  );
+}
+
+/* candle cute */
+.candle{
+  position:absolute;
+  top:-36px;
+  left:50%;
+  transform:translateX(-50%);
+  width:8px;
+  height:30px;
+  background:#ff6f91;
+  border-radius:6px;
+}
+.flame{
+  position:absolute;
+  top:-14px;
+  left:50%;
+  transform:translateX(-50%);
+  width:12px;
+  height:14px;
+  background:#ffd166;
+  border-radius:50%;
+  animation:flicker 1s infinite;
+}
+@keyframes flicker{
+  0%,100%{transform:translateX(-50%) scale(1)}
+  50%{transform:translateX(-50%) scale(1.15)}
+}
+
+/* ================= TEXT ================= */
+h2{
+  font-size:30px;
+  color:#ff6f91;
+  margin-bottom:6px;
+}
+
+p{
+  font-size:15px;
+  color:#666;
+  margin-bottom:22px;
+}
+
+/* ================= BUTTON ================= */
+.btn{
+  display:inline-block;
+  padding:14px 34px;
+  background:#ff6f91;
+  color:#fff;
+  border-radius:40px;
+  text-decoration:none;
+  font-size:15px;
+  box-shadow:0 8px 18px rgba(255,111,145,.45);
+  transition:.3s ease;
+  animation:bounce 2s infinite;
+}
+
+.btn:hover{
+  background:#ff4d79;
+  transform:translateY(-4px);
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg">
+  <span>🎈</span>
+  <span>💗</span>
+  <span>✨</span>
+  <span>🎉</span>
+</div>
+
+<div class="card">
+
+  <div class="cake">
+    <div class="layer small">
+      <div class="cream">
+        <div class="candle">
+          <div class="flame"></div>
+        </div>
+      </div>
+    </div>
+    <div class="layer mid"></div>
+    <div class="layer big"></div>
+  </div>
+
+  <h2>Happy Birthday!💕</h2>
+  <p>today is your special day 🎂</p>
+
+  <a href="page2.html" class="btn">Next Surprise 🎁</a>
+
+</div>
+
+</body>
+</html>
